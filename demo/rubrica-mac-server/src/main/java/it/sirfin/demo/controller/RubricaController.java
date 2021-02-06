@@ -5,10 +5,16 @@
  */
 package it.sirfin.demo.controller;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 39392
  */
 public class RubricaController {
     
+    
+    ArrayList<String> rub = new ArrayList<>();
+    private int cont;
+
 }
