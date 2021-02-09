@@ -42,7 +42,7 @@ public class RubricaController {
         r.setId(id);
         contatto.add(r);
         System.out.println("Restituisco dto" + contatto);
-        return contatto;
+        return null;
     }
 
     @RequestMapping("/rimuoviContatto")

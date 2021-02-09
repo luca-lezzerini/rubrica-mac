@@ -14,11 +14,11 @@ export class AppComponent {
   contatore: number;
   rubrica: RubricaReqDto = new RubricaReqDto();
   contatto: String;
-  
+
 
   constructor(private http: HttpClient) { }
 
- 
+
   aggiungiContatto() {
     this.contatti.push(this.rubrica);
     this.rubrica = new RubricaReqDto();
@@ -27,13 +27,20 @@ export class AppComponent {
     this.contatti.splice(i, 1);
   }
 
-  recuperaContatto(){
+  recuperaContatto() {
     let dto = new RubricaReqDto();
     let ox: Observable<RubricaResDto> = this.http
       .post<RubricaResDto>("http://localhost:8080/recuperaContatto",
         dto);
     ox.subscribe(r => this.contatto = r.contatto);
-    
+
+  }
+  svuotaRubrica(i: number) {
+    this.contatti.forEach(element => {
+      this.contatti.splice(i, 1);
+    });
+
+
   }
 
 
