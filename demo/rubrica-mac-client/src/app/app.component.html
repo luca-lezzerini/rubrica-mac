@@ -11,7 +11,7 @@ Cognome
 Telefono
 <input type="text" [(ngModel)]="rubrica.telefono">
 <br><br>
-<button (click)="aggiungi()">Aggiungi</button>
+<button (click)="aggiungiContatto()">Aggiungi</button>
 <br><br>
 <table align="center">
   <tr>
@@ -28,7 +28,10 @@ Telefono
     <td>{{r.telefono}}</td>&nbsp;
 
     <td>
-      <button (click)="rimuovi(i)"> X</button>&nbsp;
+      <button (click)="rimuoviContatto(i)"> X</button>&nbsp;
+    </td>
+    <td>
+      <button (click)="recuperaContatto()"> recupera</button>&nbsp;
     </td>
   </tr>
 </table>

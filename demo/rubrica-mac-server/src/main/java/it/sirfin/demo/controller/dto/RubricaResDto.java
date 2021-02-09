@@ -5,10 +5,24 @@
  */
 package it.sirfin.demo.controller.dto;
 
-/**
- *
- * @author 39392
- */
 public class RubricaResDto {
-       
+
+    private double contatto;
+
+    public RubricaResDto() {
+    }
+
+    public double getRisultato() {
+        return contatto;
+    }
+
+    public void setRisultato(double risultato) {
+        this.contatto = contatto;
+    }
+
+    @Override
+    public String toString() {
+        return "RubricaResDto{" + "contatto=" + contatto + '}';
+    }
+
 }
