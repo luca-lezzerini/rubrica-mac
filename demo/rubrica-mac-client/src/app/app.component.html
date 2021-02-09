@@ -1,37 +1,35 @@
 <body class="body">
-Id
-<input type="number" [(ngModel)]="rubrica.id">
-<br><br>
-Nome
-<input type="text" [(ngModel)]="rubrica.nome">
-<br><br>
-Cognome
-<input type="text" [(ngModel)]="rubrica.cognome">
-<br><br>
-Telefono
-<input type="text" [(ngModel)]="rubrica.telefono">
-<br><br>
-<button (click)="aggiungiContatto()">Aggiungi</button>
+  <br><br>
+  Nome
+  <input type="text" [(ngModel)]="contatto.nome">
+  <br><br>
+  Cognome
+  <input type="text" [(ngModel)]="contatto.cognome">
+  <br><br>
+  Telefono
+  <input type="text" [(ngModel)]="contatto.telefono">
+  <br><br>
+  <button (click)="aggiungiContatto()">Aggiungi</button>
   <button (click)="recuperaContatto()"> Recupera</button>&nbsp;
   <button (click)="svuotaRubrica()"> cancella Rubrica</button>&nbsp;
-<br><br>
-<table align="center">
-  <tr>
-    <th>Id</th>&nbsp;
-    <th>Nome</th>&nbsp;
-    <th>Cognome</th>&nbsp;
-    <th>Telefono</th>&nbsp;
-    <th>Gestisci</th>&nbsp;
-  </tr>
-  <tr *ngFor="let r of contatti; index as i">
-    <td>{{r.id}}</td>&nbsp;
-    <td>{{r.nome}}</td>&nbsp;
-    <td>{{r.cognome}}</td>&nbsp;
-    <td>{{r.telefono}}</td>&nbsp;
+  <br><br>
+  <table align="center">
+    <tr>
+      <th>Id</th>&nbsp;
+      <th>Nome</th>&nbsp;
+      <th>Cognome</th>&nbsp;
+      <th>Telefono</th>&nbsp;
+      <th>Gestisci</th>&nbsp;
+    </tr>
+    <tr *ngFor="let r of rubrica; index as i">
+      <td>{{r.id}}</td>&nbsp;
+      <td>{{r.nome}}</td>&nbsp;
+      <td>{{r.cognome}}</td>&nbsp;
+      <td>{{r.telefono}}</td>&nbsp;
 
-    <td>
-      <button (click)="rimuoviContatto(i)"> X</button>&nbsp;
-   
-  </tr>
-</table>
+      <td>
+        <button (click)="rimuoviContatto(i)"> X</button>&nbsp;
+
+    </tr>
+  </table>
 </body>

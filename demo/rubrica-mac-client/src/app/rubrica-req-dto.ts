@@ -1,6 +1,6 @@
-export class RubricaReqDto{
-    id: number;
+export class RubricaReqDto {
+    id: number = null;
     nome: String;
-     cognome:String;
-     telefono: String;
-    }
+    cognome: String;
+    telefono: String;
+}

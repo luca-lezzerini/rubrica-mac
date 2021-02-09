@@ -28,28 +28,21 @@ public class RubricaController {
 
     @RequestMapping("/aggiungiContatto")
     @ResponseBody
-    public List<RubricaReqDto> contatto(@RequestBody RubricaReqDto dto) {
-        System.out.println("Ricevuto dto " + dto);
-        int id = dto.getId();
-        String nome = dto.getNome();
-        String cognome = dto.getCognome();
-        String telefono = dto.getTelefono();
+    public List<RubricaReqDto> aggiungiContatto(@RequestBody RubricaReqDto dto) {
+        dto.setId(ID);
         ID++;
-        RubricaReqDto r = new RubricaReqDto();
-        r.setNome(nome);
-        r.setCognome(cognome);
-        r.setTelefono(telefono);
-        r.setId(id);
-        contatto.add(r);
+        contatto.add(dto);
         System.out.println("Restituisco dto" + contatto);
-        return null;
+        return this.contatto;
     }
 
     @RequestMapping("/rimuoviContatto")
     @ResponseBody
-    public List<RubricaReqDto> rimuoviContatto() {
-        this.contatto = new ArrayList();
+    public List<RubricaReqDto> rimuoviContatto(@RequestBody RubricaReqDto dto) {
+        /*this.contatto = new ArrayList();
         this.ID = 0;
+         */
+        contatto.removeIf(cs -> cs.getId() == dto.getId());
         return this.contatto;
     }
 
@@ -58,4 +51,13 @@ public class RubricaController {
     public List<RubricaReqDto> recuperaContatto() {
         return this.contatto;
     }
+
+    @RequestMapping("/svuotaRubrica")
+    @ResponseBody
+    public List<RubricaReqDto> svuotaRubrica() {
+        this.contatto.clear(); //svuoto la rubrica
+        this.ID = 0; //azzero l'id
+        return this.contatto;
+    }
+
 }
