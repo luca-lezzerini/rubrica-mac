@@ -14,13 +14,21 @@ public class RubricaReqDto {
     private int id;
     private String nome;
     private String cognome;
-    private int telefono;
+    private String telefono; 
 
-    public RubricaReqDto(int id, String nome, String cognome, int telefono) {
+    public RubricaReqDto() {
+    }
+
+    public RubricaReqDto(int id, String nome, String cognome, String telefono) {
         this.id = id;
         this.nome = nome;
         this.cognome = cognome;
         this.telefono = telefono;
+    }
+
+    @Override
+    public String toString() {
+        return "RubricaReqDto{" + "id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", telefono=" + telefono + '}';
     }
 
     public int getId() {
@@ -46,19 +54,14 @@ public class RubricaReqDto {
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }
-    public int getTelefono() {
+
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
-    @Override
-    public String toString() {
-        return "RubricaReqDto{" + "id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", telefono=" + telefono + '}';
-    }
-    
-    
     
 }
