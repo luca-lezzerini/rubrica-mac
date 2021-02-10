@@ -7,6 +7,7 @@ package it.sirfin.demo.service.impl;
 
 import it.sirfin.demo.controller.dto.RubricaReqDto;
 import it.sirfin.demo.service.RubricaService;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -17,24 +18,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class RubricaServiceImpl implements RubricaService {
 
+    private List<RubricaReqDto> contatto;
+
     @Override
-    public List<RubricaReqDto> aggiungiContatto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<RubricaReqDto> aggiungiContatto(/*int i,String n, String c, String t*/) {
+        return this.contatto;
     }
 
     @Override
     public List<RubricaReqDto> rimuoviContatto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.contatto;
     }
 
     @Override
     public List<RubricaReqDto> recuperaContatto() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.contatto;
     }
 
     @Override
     public List<RubricaReqDto> svuotaRubrica() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.contatto;
     }
-    
+
 }

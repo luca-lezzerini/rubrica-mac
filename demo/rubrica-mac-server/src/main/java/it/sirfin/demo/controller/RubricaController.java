@@ -7,8 +7,10 @@ package it.sirfin.demo.controller;
 
 import it.sirfin.demo.controller.dto.RubricaReqDto;
 import it.sirfin.demo.controller.dto.RubricaResDto;
+import it.sirfin.demo.service.RubricaService;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author 39392
  */
+ //@Autowired
+ //RubricaService rubricaService
 public class RubricaController {
 
     ArrayList<RubricaReqDto> contatto = new ArrayList<>();
@@ -28,7 +32,8 @@ public class RubricaController {
 
     @RequestMapping("/aggiungiContatto")
     @ResponseBody
-    public List<RubricaReqDto> aggiungiContatto(@RequestBody RubricaReqDto dto) {
+    public  List<RubricaReqDto> aggiungiContatto(@RequestBody RubricaReqDto dto) {
+        //List<RubricaReqDto> c= RubricaService.aggiungiContatto();
         dto.setId(ID);
         ID++;
         contatto.add(dto);
