@@ -52,7 +52,7 @@ public class RubricaController {
         return this.contatto;
     }
 
-    @RequestMapping("/svuotaRubrica")
+    @RequestMapping("/svuotaRubrica") 
     @ResponseBody
     public List<RubricaReqDto> svuotaRubrica() {
         this.contatto.clear(); //svuoto la rubrica

@@ -9,11 +9,11 @@
   Telefono
   <input type="text" [(ngModel)]="contatto.telefono">
   <br><br>
-  <button (click)="aggiungiContatto()">Aggiungi</button>
-  <button (click)="recuperaContatto()"> Recupera</button>&nbsp;
-  <button (click)="svuotaRubrica()"> cancella Rubrica</button>&nbsp;
+  <button *ngIf="showFormAggiungi" (click)="aggiungiContatto()">Aggiungi</button>
+  <button *ngIf="showFormRecupera"  (click)="recuperaContatto()"> Recupera</button>&nbsp;
+  <button *ngIf="showFormSvuota" (click)="svuotaRubrica()"> cancella Rubrica</button>&nbsp;
   <br><br>
-  <table align="center">
+  <table  *ngIf="showTable" align="center">
     <tr>
       <th>Id</th>&nbsp;
       <th>Nome</th>&nbsp;
