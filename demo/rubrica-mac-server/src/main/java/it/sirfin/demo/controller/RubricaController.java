@@ -5,7 +5,6 @@
  */
 package it.sirfin.demo.controller;
 
-
 import it.sirfin.demo.model.ContattoJPA;
 import it.sirfin.demo.service.RubricaService;
 import java.util.ArrayList;
@@ -35,17 +34,21 @@ public class RubricaController {
         contatto.add(new ContattoJPA("Marco", "Bonaccorso", "3282365019"));
         contatto.add(new ContattoJPA("Valeria", "Comitogianni", "3922147475"));
 
+        //recupera i contatti appena cancellati
+        contatto.forEach((t) -> {
+            rubricaService.inserisciContatto(t);
+        });
+        
+        
+        //cancella contatto
+    //rubricaService.cancellaContatto(p);
+        
+        
+        List<ContattoJPA> lista = rubricaService.recuperaContatti();
+        lista.forEach((t) -> System.out.println(t));
+
         // svuota la rubrica
         rubricaService.svuotaRubrica();
 
-        //recupera i contatti appena cancellati
-        contatto.forEach((t) -> {
-            rubricaService.aggiungiContatto();
-        });
-        List<ContattoJPA> lista = rubricaService. recuperaContatto();
-        lista.forEach((t) -> System.out.println(t));
-        
-        
-        
     }
 }

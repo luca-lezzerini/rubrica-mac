@@ -16,12 +16,12 @@ import org.springframework.stereotype.Service;
 @Service
 public interface RubricaService {
 
-    List<ContattoJPA> aggiungiContatto();
+    void inserisciContatto(ContattoJPA c);
 
-    List<ContattoJPA> rimuoviContatto();
+    void cancellaContatto(ContattoJPA p);
 
-    List<ContattoJPA> recuperaContatto();
+    void svuotaRubrica();
 
-    List<ContattoJPA> svuotaRubrica();
+    List<ContattoJPA> recuperaContatti();
 
 }

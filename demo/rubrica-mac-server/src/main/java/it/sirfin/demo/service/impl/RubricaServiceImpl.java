@@ -19,30 +19,28 @@ import org.springframework.stereotype.Service;
 @Service
 
 public class RubricaServiceImpl implements RubricaService {
-    
-    @Autowired
+
+     @Autowired
     RubricaRepository rubricaRepository;
 
-    private List<ContattoJPA> contatto;
-
-    @Override
-    public List<ContattoJPA> aggiungiContatto() {
-        return this.contatto;
+      @Override
+    public void inserisciContatto(ContattoJPA c) {
+        rubricaRepository.save(c);
     }
 
     @Override
-    public List<ContattoJPA> rimuoviContatto() {
-        return this.contatto;
+    public void cancellaContatto(ContattoJPA p) {
+        rubricaRepository.delete(p);
     }
 
     @Override
-    public List<ContattoJPA> recuperaContatto() {
-        return this.contatto;
+    public void svuotaRubrica() {
+        rubricaRepository.deleteAllInBatch();
     }
 
     @Override
-    public List<ContattoJPA> svuotaRubrica() {
-        return this.contatto;
+    public List<ContattoJPA> recuperaContatti() {
+        return rubricaRepository.findAll();
     }
 
 }
