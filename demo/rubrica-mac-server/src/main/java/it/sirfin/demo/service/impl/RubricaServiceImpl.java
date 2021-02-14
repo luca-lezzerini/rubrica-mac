@@ -5,7 +5,7 @@
  */
 package it.sirfin.demo.service.impl;
 
-import it.sirfin.demo.controller.dto.RubricaReqDto;
+import it.sirfin.demo.model.ContattoJPA;
 import it.sirfin.demo.service.RubricaService;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,25 +18,25 @@ import org.springframework.stereotype.Service;
 @Service
 public class RubricaServiceImpl implements RubricaService {
 
-    private List<RubricaReqDto> contatto;
+    private List<ContattoJPA> contatto;
 
     @Override
-    public List<RubricaReqDto> aggiungiContatto(/*int i,String n, String c, String t*/) {
+    public List<ContattoJPA> aggiungiContatto(/*int i,String n, String c, String t*/) {
         return this.contatto;
     }
 
     @Override
-    public List<RubricaReqDto> rimuoviContatto() {
+    public List<ContattoJPA> rimuoviContatto() {
         return this.contatto;
     }
 
     @Override
-    public List<RubricaReqDto> recuperaContatto() {
+    public List<ContattoJPA> recuperaContatto() {
         return this.contatto;
     }
 
     @Override
-    public List<RubricaReqDto> svuotaRubrica() {
+    public List<ContattoJPA> svuotaRubrica() {
         return this.contatto;
     }
 

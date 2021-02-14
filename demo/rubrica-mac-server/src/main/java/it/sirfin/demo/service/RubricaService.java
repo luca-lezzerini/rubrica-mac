@@ -5,21 +5,23 @@
  */
 package it.sirfin.demo.service;
 
-import it.sirfin.demo.controller.dto.RubricaReqDto;
+import it.sirfin.demo.model.ContattoJPA;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author marco
  */
+@Service
 public interface RubricaService {
 
-    List<RubricaReqDto> aggiungiContatto();
+    List<ContattoJPA> aggiungiContatto();
 
-    List<RubricaReqDto> rimuoviContatto();
+    List<ContattoJPA> rimuoviContatto();
 
-    List<RubricaReqDto> recuperaContatto();
+    List<ContattoJPA> recuperaContatto();
 
-    List<RubricaReqDto> svuotaRubrica();
+    List<ContattoJPA> svuotaRubrica();
 
 }

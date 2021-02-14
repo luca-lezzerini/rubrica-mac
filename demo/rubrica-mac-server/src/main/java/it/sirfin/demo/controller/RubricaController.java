@@ -5,64 +5,44 @@
  */
 package it.sirfin.demo.controller;
 
-import it.sirfin.demo.controller.dto.RubricaReqDto;
-import it.sirfin.demo.controller.dto.RubricaResDto;
+
+import it.sirfin.demo.model.ContattoJPA;
 import it.sirfin.demo.service.RubricaService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin("*")
-@RestController
 /**
  *
- * @author 39392
+ * @author marco
  */
- //@Autowired
- //RubricaService rubricaService
+@CrossOrigin("*")
+@RestController
 public class RubricaController {
 
-    ArrayList<RubricaReqDto> contatto = new ArrayList<>();
-    int ID = 0;
+    @Autowired
+    RubricaService rubricaService;
 
-    @RequestMapping("/aggiungiContatto")
-    @ResponseBody
-    public  List<RubricaReqDto> aggiungiContatto(@RequestBody RubricaReqDto dto) {
-        //List<RubricaReqDto> c= RubricaService.aggiungiContatto();
-        dto.setId(ID);
-        ID++;
-        contatto.add(dto);
-        System.out.println("Restituisco dto" + contatto);
-        return this.contatto;
+    @RequestMapping("/init")
+    //crea e inserisce i contatti
+    public void init() {
+        List<ContattoJPA> contatto = new ArrayList<>();
+        contatto.add(new ContattoJPA("Francesco", "Lillo", "3318074583"));
+        contatto.add(new ContattoJPA("Alessandro", "Urbani", "3913283951"));
+        contatto.add(new ContattoJPA("Marco", "Bonaccorso", "3282365019"));
+        contatto.add(new ContattoJPA("Valeria", "Comitogianni", "3922147475"));
+
+        // svuota la rubrica
+        rubricaService.svuotaRubrica();
+
+        //recupera i contatti appena cancellati
+        contatto.forEach((t) -> {
+            rubricaService.aggiungiContatto();
+        });
+        List<ContattoJPA> lista = rubricaService. recuperaContatto();
+        lista.forEach((t) -> System.out.println(t));
     }
-
-    @RequestMapping("/rimuoviContatto")
-    @ResponseBody
-    public List<RubricaReqDto> rimuoviContatto(@RequestBody RubricaReqDto dto) {
-        /*this.contatto = new ArrayList();
-        this.ID = 0;
-         */
-        contatto.removeIf(cs -> cs.getId() == dto.getId());
-        return this.contatto;
-    }
-
-    @RequestMapping("/recuperaContatto")
-    @ResponseBody
-    public List<RubricaReqDto> recuperaContatto() {
-        return this.contatto;
-    }
-
-    @RequestMapping("/svuotaRubrica") 
-    @ResponseBody
-    public List<RubricaReqDto> svuotaRubrica() {
-        this.contatto.clear(); //svuoto la rubrica
-        this.ID = 0; //azzero l'id
-        return this.contatto;
-    }
-
 }

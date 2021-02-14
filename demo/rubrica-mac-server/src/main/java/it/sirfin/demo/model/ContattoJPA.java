@@ -3,39 +3,46 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.sirfin.demo.controller.dto;
+package it.sirfin.demo.model;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author marco
  */
-public class RubricaReqDto {
-    
-    private int id;
-    private String nome;
-    private String cognome;
-    private String telefono; 
+@Entity
+public class ContattoJPA implements Serializable {
 
-    public RubricaReqDto() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column
+    private String nome;
+    @Column
+    private String cognome;
+    @Column
+    private String telefono;
+
+    public ContattoJPA() {
     }
 
-    public RubricaReqDto(int id, String nome, String cognome, String telefono) {
-        this.id = id;
+    public ContattoJPA(String nome, String cognome, String telefono) {
         this.nome = nome;
         this.cognome = cognome;
         this.telefono = telefono;
     }
 
-    @Override
-    public String toString() {
-        return "RubricaReqDto{" + "id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", telefono=" + telefono + '}';
-    }
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -63,5 +70,9 @@ public class RubricaReqDto {
         this.telefono = telefono;
     }
 
-    
+    @Override
+    public String toString() {
+        return "RubricaJPA{" + "id=" + id + ", nome=" + nome + ", cognome=" + cognome + ", telefono=" + telefono + '}';
+    }
+
 }
