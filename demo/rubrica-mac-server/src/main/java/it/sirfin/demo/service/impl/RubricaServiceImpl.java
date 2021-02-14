@@ -6,9 +6,10 @@
 package it.sirfin.demo.service.impl;
 
 import it.sirfin.demo.model.ContattoJPA;
+import it.sirfin.demo.repository.RubricaRepository;
 import it.sirfin.demo.service.RubricaService;
-import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,12 +17,16 @@ import org.springframework.stereotype.Service;
  * @author marco
  */
 @Service
+
 public class RubricaServiceImpl implements RubricaService {
+    
+    @Autowired
+    RubricaRepository rubricaRepository;
 
     private List<ContattoJPA> contatto;
 
     @Override
-    public List<ContattoJPA> aggiungiContatto(/*int i,String n, String c, String t*/) {
+    public List<ContattoJPA> aggiungiContatto() {
         return this.contatto;
     }
 

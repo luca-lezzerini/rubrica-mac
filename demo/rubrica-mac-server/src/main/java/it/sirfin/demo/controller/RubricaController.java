@@ -44,5 +44,8 @@ public class RubricaController {
         });
         List<ContattoJPA> lista = rubricaService. recuperaContatto();
         lista.forEach((t) -> System.out.println(t));
+        
+        
+        
     }
 }
